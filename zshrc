@@ -71,3 +71,19 @@ PS1=$'%{\e[1;34m%}%n%{\e[0;34m%}@%{\e[1;34m%}%M %{\e[1;31m%}%~ %{\e[0;31m%}$ %{\
 
 # directory changan rican
 cd() { builtin cd $@; ls }
+
+# window title rican
+case $TERM in
+  *xterm*|rxvt|rxvt-unicode|rxvt-256color|(dt|k|E)term)
+    precmd () { print -Pn "\e]0;$TERM - [%n@%M]%# [%~]\a" }
+    preexec () { print -Pn "\e]0;$TERM - [%n@%M]%# [%~] ($1)\a" }
+;;
+  screen)
+    precmd () {
+      print -Pn "\e]83;title \"$1\"\a"
+      print -Pn "\e]0;$TERM - [%n@%M]%# [%~]\a" }
+    preexec () {
+      print -Pn "\e]83;title \"$1\"\a"
+      print -Pn "\e]0;$TERM - [%n@%M]%# [%~] ($1)\a" }
+;;
+esac
