@@ -119,7 +119,7 @@ myManageHook = composeAll
   , title     =? "Downloads"                    --> doFloat
   , resource  =? "desktop_window"               --> doIgnore
   , resource  =? "feh"                          --> doCenterFloat
-  , resource  =? "kdesktop"                      --> doIgnore ]
+  , resource  =? "kdesktop"                     --> doIgnore ]
 
   -- Startup
 myStartupHook = return ()
