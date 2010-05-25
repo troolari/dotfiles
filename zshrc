@@ -7,11 +7,6 @@ zstyle :compinstall filename '/home/jan-patrick/.zshrc'
 autoload -Uz compinit
 compinit
 
-# "display manager"
-if [ $TTY == "tty1" ]; then
-  exec startx
-fi
-
 # shell variablan
 export PATH=".:/usr/lib/cw:/usr/local/bin:$PATH"
 export BROWSER='firefox'
