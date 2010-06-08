@@ -2,10 +2,8 @@
 *color0:     #111111
 *color8:     #666666
 !red
-!*color1:     rgb:d3/62/65
-*color1:              rgb:4C/8C/38
-!*color9:     rgb:ef/81/71
-*color9:              rgb:D6/93/00
+*color1:     rgb:d3/62/65
+*color9:     rgb:ef/81/71
 !green
 *color2:     #aece91
 *color10:    #cfefb3
