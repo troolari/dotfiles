@@ -14,17 +14,23 @@ export PAGER='less'
 export EDITOR='vim'
 
 # man coloran
-export LESS_TERMCAP_mb=$'\E[01;31m'
+#export LESS_TERMCAP_mb=$'\E[01;31m'
+#export LESS_TERMCAP_md=$'\E[01;31m'
+#export LESS_TERMCAP_me=$'\E[0m'
+#export LESS_TERMCAP_se=$'\E[0m'
+#export LESS_TERMCAP_so=$'\E[0;31m'
+#export LESS_TERMCAP_ue=$'\E[0m'
+#export LESS_TERMCAP_us=$'\E[0;31m'
+export LESS_TERMCAP_mb=$'\E[0;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[0;32m'
 export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[1;32m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 # random aliasan
 alias ls='/bin/ls --color=auto'
-alias cp='pycp'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias c='clear'
@@ -64,10 +70,19 @@ alias -s org=$BROWSER
 
 # prompt rican
 #PS1=$'%{\e[1;31m%}%n%{\e[0;31m%}@%{\e[1;31m%}%M %{\e[1;35m%}%~ %{\e[0;35m%}$ %{\e[0m%}' #red user/host, magenta directory
+#PS1=$'%{\e[1;31m%}%n%{\e[0;31m%}@%{\e[1;31m%}%M %{\e[1;36m%}%~ %{\e[0;36m%}$ %{\e[0m%}' #red user/host, cyan directory
+#PS1=$'%{\e[1;36m%}%n%{\e[0;36m%}@%{\e[1;36m%}%M %{\e[1;31m%}%~ %{\e[0;31m%}$ %{\e[0m%}' #red user/host, cyan directory
+#PS1=$'%{\e[0;32m%}%n%{\e[0;36m%}@%{\e[0;31m%}%M %{\e[0;36m%}%~ %{\e[1;36m%}$ %{\e[0m%}' #red user/host, cyan directory
 #PS1=$'%{\e[1;34m%}%n%{\e[0;34m%}@%{\e[1;34m%}%M %{\e[1;33m%}%~ %{\e[0;33m%}$ %{\e[0m%}' #blue user/host, red directory
-PS1=$'%{\e[1;34m%}%n%{\e[0;34m%}@%{\e[1;34m%}%M %{\e[1;31m%}%~ %{\e[0;31m%}$ %{\e[0m%}' #blue user/host, red directory
+#PS1=$'%{\e[1;34m%}%n%{\e[0;35m%}@%{\e[1;34m%}%M %{\e[1;35m%}%~ %{\e[0;35m%}$ %{\e[0m%}' #blue user/host, red directory
 #export PS1="$(print '%{\e[0;31m%}:%{\e[1;31m%}:%{\e[0;33m%}:%{\e[1;33m%}:%{\e[0m%} ')"
 #export PS1="$(print '%{\e[0;31m%}>%{\e[1;31m%}>%{\e[0;33m%}>%{\e[1;33m%}>%{\e[0m%} ')"
+#PS1=$(print '%{\e[1;32m%}%n%{\e[0;36m%}@%{\e[1;36m%}%M%b %{\e[0;31m%}%d %{\e[0;36m%}%# %{\e[0m%}')
+#PS1=$(print '%{\e[0;32m%}%n%{\e[0;36m%}@%{\e[1;36m%}%M%b %{\e[1;31m%}%~ %{\e[0;36m%}%# %{\e[0m%}')
+#PS1=$(print '%{\e[0;32m%}%n%{\e[0;36m%}@%{\e[1;36m%}%M%b %{\e[1;35m%}%~ %{\e[0;36m%}%# %{\e[0m%}')
+#RPS1=$(print '%{\e[0;34m%}[%{\e[1;37m%}%D%{\e[0;34m%}] %{\e[1;34m%}[%{\e[1;37m%}%T%{\e[1;34m%}]%{\e[0m%}')
+PROMPT=$'%{\e[0;36m%}%B┌─[%b%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[1;34m%}%m%{\e[0;36m%}%B]%b%{\e[1;36m%}─[%b%{\e[0;31m%}%~%{\e[0;36m%}%B]\n%{\e[0;36m%}%B└─╼%b%{\e[1;30m%}%{\e[0m%} '
+#PROMPT=$'%{\e[0;36m%}%B┌─[%b%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[1;34m%}%m%{\e[0;36m%}%B]\n%{\e[0;36m%}%B└─╼%b%{\e[1;30m%}%{\e[0m%} '
 
 # directory changan rican
 cd() { builtin cd $@; ls }

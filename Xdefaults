@@ -1,5 +1,21 @@
-!urxvt*geometry:        100x25 
-urxvt.depth:                 24
+#include ".config/colors/Xdefaults.c.derp"
+*foreground: #eeeeee
+*background: #161616
+
+Xft.dpi:                   84
+Xft.antialias:           true
+Xft.hinting:             full
+Xft.hintstyle:     hintslight
+Xft.rgba:                 rgb
+
+!urxvt*font: xft:ProFont:size=9:antialias=false:autohinting=false
+!urxvt*boldFont: xft:ProFont:size=9:antialias=false:autohinting=false
+!urxvt*font: xft:GohuFont:size=6:antialias=false:autohinting=false
+!urxvt*boldFont: xft:GohuFont:size=6:antialias=false:autohinting=false
+urxvt*font: xft:lime.se:size=10:antialias=false:autohinting=false
+urxvt*boldFont: xft:lime.se:size=10:antialias=false:autohinting=false
+
+urxvt.depth:                24
 urxvt.termName:  rxvt-256color
 urxvt.loginShell:         true
 urxvt.scrollBar:         false
@@ -15,154 +31,3 @@ urxvt*perl-lib:         /usr/lib/urxvt/perl/
 urxvt*perl-ext-common:  default,matcher,searchable-scrollback
 urxvt*urlLauncher:      firefox
 urxvt*matcher.button:   1
-urxvt*cutchars:         `"()'*<>[]{|}
-
-!urxvt*font: xft:ProFont:size=9:antialias=false:autohinting=false
-!urxvt*boldFont: xft:ProFont:size=9:antialias=false:autohinting=false
-!urxvt*font: xft:GohuFont:size=6:antialias=false:autohinting=false
-!urxvt*boldFont: xft:GohuFont:size=6:antialias=false:autohinting=false
-urxvt*font: xft:lime.se:size=10:antialias=false:autohinting=false
-urxvt*boldFont: xft:lime.se:size=10:antialias=false:autohinting=false
-!urxvt*font: xft:Consolas:size=8:antialias=true:hinting=true:bold
-!urxvt*boldFont: xft:Consolas:size=8:antialias=true:hinting=true:bold
-!urxvt*font: xft:Inconsolata:size=7:antialias=true:hinting=true
-!urxvt*boldFont: xft:Inconsolata:size=7:antialias=true:hinting=true
-
-!Mix of Pnevma3 and Arthur
-*foreground: #cfcfcf
-*background: #1C1C1C
-!black
-*color0: #3d352a
-*color8: #554444
-!red
-*color1: #cd5c5c
-*color9: #cd7c7c
-!green
-*color2: #86af80
-*color10: #a2d49f
-!yellow
-*color3: #D1A375
-*color11: #DEBC9C
-!blue
-*color4: #7985A3
-*color12: #98A1B9
-!magenta
-*color5: #AB716D
-*color13: #BE918E
-!cyan
-*color6: #b0c4de
-*color14: #cfd6de
-!white
-*color7: #bbaa99
-*color15: #ddccbb
-
-!thayer
-!*foreground: #DDEEDD
-!*background: #1C1C1C
-!!black
-!*color0: #1C1C1C
-!*color8: #4d4d4d
-!!red
-!*color1: #D81860
-!*color9: #F00060
-!!green
-!*color2: #B7CE42
-!*color10: #BDE077
-!!yellow
-!*color3: #FEA63C
-!*color11: #FFE863
-!!blue
-!*color4: #66AABB
-!*color12: #AACCBB
-!!magenta
-!*color5: #B7416E
-!*color13: #BB4466
-!!cyan
-!*color6: #5E7175
-!*color14: #A3BABF
-!!white
-!*color7: #DDEEDD
-!*color15: #6C887A
-
-!!Pnevma3 - Same as Pnevma2, but with a darker foreground (with edited foreground, so I guess it makes it back to Pnevma2)
-!!*foreground: #9c9c9c
-!!*background: #1a1a1a
-!*foreground: #c0c0c0
-!*background: #111111
-!*color0: #363636
-!*color8: #424242
-!*color1: #C37561
-!*color9:  #D19485
-!*color2: #A0A57E
-!*color10: #B6B99D
-!*color3: #D1A375
-!*color11: #DEBC9C
-!*color4: #7985A3
-!*color12: #98A1B9
-!*color5: #AB716D
-!*color13: #BE918E
-!*color6: #98B9B1
-!*color14: #CBE6CB
-!*color7: #D0D0D0
-!*color15: #E6E6E6
-
-!!less gay
-!!black
-!*color0: #2f2f2f
-!*color8: #4f4f4f
-!!red
-!*color1: #ffb072
-!*color9: #ffbf8d
-!!green
-!*color2: #acc17e
-!*color10: #c3dcad
-!!yellow
-!*color3: #ecdf9d
-!*color11: #ece4be
-!!blue
-!*color4: #76b4d8
-!*color12: #9cd3e8
-!!magenta
-!!*color5: #c99eff
-!!*color13: #dcc1ff
-!*color5: #956D9D
-!*color13: #C18FCB
-!!cyan
-!*color6: #9cd3e8
-!*color14: #dcfbff
-!!white
-!*color7: #cccccc
-!*color15: #ffffff
-!!bg & fg
-!*background: #1c1c1c
-!*foreground: #eeeeee
-
-!!grayscale2
-!!bg & fg
-!*foreground: #8f8f8f
-!*background: #111111
-!!*background: #ffffff
-!!black
-!*color0: #1f1f1f
-!*color8: #474747
-!!red
-!*color1: #444444
-!*color9: #666666
-!!green
-!*color2: #707070
-!*color10: #b0b0b0
-!!yellow
-!*color3: #9f9f9f
-!*color11: #f5f5f5
-!blue
-!*color4: #555555
-!*color12: #777777
-!!magenta
-!*color5: #767676
-!*color13: #848484
-!!cyan
-!*color6: #b4b4b4
-!*color14: #d1d1d1
-!!white
-!*color7: #cccccc
-!*color15: #eeeeee
