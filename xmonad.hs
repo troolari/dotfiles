@@ -16,33 +16,39 @@ import XMonad.Layout.Grid
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.NoBorders
 import XMonad.Layout.SimplestFloat
+import XMonad.Layout.Spiral
     -- Prompt
 import XMonad.Prompt
 import XMonad.Prompt.Shell
     -- lolsorandumxd
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import Data.List
 
   -- Settings
 myTerminal              = "urxvtc"
 myBorderWidth           = 1
 myModMask               = mod4Mask
 myNumlockMask           = mod2Mask
-myWorkspaces            = ["eax","ebx","ecx", "edx"]
 myNormalBorderColor     = "#121212" 
-myFocusedBorderColor    = "#9f9f9f"
+myFocusedBorderColor    = "#222222"
 myFocusFollowsMouse     = False
 
     -- Dzen2
-myStatusBar             = "dzen2 -x '0' -y '0' -h '16' -ta l -fn 'lime.se-9' -bg '#141414' -fg '#ffffff' -e 'onstart:lower'"
+myStatusBar             = "dzen2 -x '0' -y '0' -h '13' -ta l -fn 'cure.se-9' -bg '#141414' -fg '#ffffff' -e 'onstart:lower'"
+
+    -- Clickable Workspaces
+myWorkspaces            :: [String]
+myWorkspaces            = clickable . (map dzenEscape) $ ["eax", "ebx", "ecx", "edx"]
+  where clickable l     = [ "^ca(1,xdotool key super+" ++ show (n) ++ ")" ++ ws ++ "^ca()" | (i,ws) <- zip [1..] l, let n = i ]
 
     -- ShellPrompt
 myShellPrompt           = defaultXPConfig
   { font                = "-*-proggytinyttsz-*-*-*-*-0-*-*-*-*-*-*-*"
-  , bgColor             = "#161616"
-  , fgColor             = "#8f8f8f"
-  , fgHLight            = "#aece91"
-  , bgHLight            = "#202020"
+  , bgColor             = "#141414"
+  , fgColor             = "#3f3f3f"
+  , fgHLight            = "#bfbfbf"
+  , bgHLight            = "#222222"
   , borderColor         = "#4f4f4f"
   , promptBorderWidth   = 0
   , position            = Top
@@ -108,6 +114,7 @@ myLayout = avoidStruts (resizable ||| Mirror resizable ||| Grid ||| simplestFloa
   -- Floats and shifts
 myManageHook = composeAll
   [ className =? "Gimp-2.6"                     --> doFloat
+  , className =? "Gimp"                         --> doFloat
   , className =? "Wine"                         --> doFloat
   , className =? "Xarchiver"                    --> doCenterFloat
   , className =? "File-roller"                  --> doCenterFloat
@@ -144,12 +151,12 @@ main = do
     -- Dzen2 PrettyPrinting
           logHook            = dynamicLogWithPP $ dzenPP {
                                 ppOutput            = hPutStrLn dzproc
-                                , ppCurrent         = wrap "^fg(#cfefb3)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win.xbm)^fg(#aece91)^bg(#141414)" "^fg()^bg() "
-                                , ppVisible         = wrap "^fg(#afafaf)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win_nv.xbm)" " ^fg()^bg()"
-                                , ppHidden          = wrap "^fg(#6f6f6f)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win_nv.xbm)" " ^fg()^bg()"
-                                , ppHiddenNoWindows = wrap " ^fg(#6f6f6f)^bg(#141414)" " ^fg()^bg()" 
+                                , ppCurrent         = wrap "^fg(#bfbfbf)^bg(#222222)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win.xbm)" " ^fg()^bg()"
+                                , ppVisible         = wrap "^fg(#8f8f8f)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win_nv.xbm)" " ^fg()^bg()"
+                                , ppHidden          = wrap "^fg(#3f3f3f)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win_nv.xbm)" " ^fg()^bg()"
+                                , ppHiddenNoWindows = wrap " ^fg(#3f3f3f)^bg(#141414)" " ^fg()^bg()" 
                                 , ppUrgent          = dzenColor "#ff0000" "black"
-                                , ppLayout          = dzenColor "#9f9f9f" "#141414" . pad .
+                                , ppLayout          = dzenColor "#6f6f6f" "#141414" . pad .
                                     (\x -> case x of
                                             "ResizableTall" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/tall.xbm)"
                                             "Mirror ResizableTall" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/mtall.xbm)"
@@ -157,7 +164,7 @@ main = do
                                             "Grid" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/grid.xbm)"
                                             "SimplestFloat" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/float.xbm)"
                                     )
-                              , ppTitle           = dzenColor "#aece91" "#141414" . shorten 125 . pad
+                              , ppTitle           = wrap "^fg(#bfbfbf)^bg(#141414) " " ^fg()^bg()" . shorten 125
                               , ppWsSep           = "^fg()^bg(#141414)"
                               , ppSep             = "^fg()^bg(#141414)"
                               }
