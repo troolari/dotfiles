@@ -1,33 +1,36 @@
 #include ".config/colors/Xdefaults.c.derp"
-*foreground: #eeeeee
-*background: #161616
+!*foreground: #eeeeee
+!*background: #161616
+urxvt*background: #111111
+urxvt*foreground: #e1e2db
 
-Xft.dpi:                   84
-Xft.antialias:           true
-Xft.hinting:             full
-Xft.hintstyle:     hintslight
-Xft.rgba:                 rgb
+Xft.dpi: 84
+Xft.antialias: true
+Xft.hinting: full
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
 
-!urxvt*font: xft:ProFont:size=9:antialias=false:autohinting=false
-!urxvt*boldFont: xft:ProFont:size=9:antialias=false:autohinting=false
-!urxvt*font: xft:GohuFont:size=6:antialias=false:autohinting=false
-!urxvt*boldFont: xft:GohuFont:size=6:antialias=false:autohinting=false
-urxvt*font: xft:lime.se:size=10:antialias=false:autohinting=false
-urxvt*boldFont: xft:lime.se:size=10:antialias=false:autohinting=false
+xterm*faceName: cure.se
 
-urxvt.depth:                24
-urxvt.termName:  rxvt-256color
-urxvt.loginShell:         true
-urxvt.scrollBar:         false
-urxvt.secondaryScroll:    true
-urxvt.saveLines:         65535
-urxvt.cursorBlink:       false
-urxvt.urgentOnBell:      false
+urxvt*font: xft:lime.se
+urxvt*boldFont: xft:lime.se 
+
+urxvt.geometry: 105x24
+urxvt.depth: 24
+urxvt.termName: rxvt-256color
+urxvt.loginShell: true
+urxvt.scrollBar: false
+urxvt.secondaryScroll: true
+urxvt.saveLines: 65535
+urxvt.cursorBlink: false
+urxvt.urgentOnBell: false
 urxvt.override-redirect: false
-urxvt.borderWidth:           0
-urxvt.internalBorder:        3
+urxvt.borderWidth: 0
+urxvt.internalBorder: 3
 
-urxvt*perl-lib:         /usr/lib/urxvt/perl/
-urxvt*perl-ext-common:  default,matcher,searchable-scrollback
-urxvt*urlLauncher:      firefox
-urxvt*matcher.button:   1
+urxvt*perl-lib: /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,matcher,searchable-scrollback
+URxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+URxvt.perl-ext: selection,mark-yank-urls
+urxvt*urlLauncher: firefox
+urxvt*matcher.button: 1

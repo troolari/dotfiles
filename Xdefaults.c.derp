@@ -1,22 +1,22 @@
 !black
-*color0:     #111111
-*color8:     #666666
+*color0: #111111
+*color8: #444444
 !red
-*color1:     rgb:d3/62/65
-*color9:     rgb:ef/81/71
+*color1: #d36265
+*color9: #ef8171
 !green
-*color2:     #aece91
-*color10:    #cfefb3
+*color2: #aece91
+*color10: #cfefb3
 !yellow
-*color3:     rgb:e7/e1/8c
-*color11:    rgb:ff/f7/96
+*color3: #e7e18c
+*color11: #fff796
 !blue
-*color4: #5297cf
-*color12: #74b8ef
+*color4: #6F99B4
+!*color12: #8da7c1
+*color12: #9eb8d2
 !magenta
 *color5: #963c59
 *color13: #b85e7b
-!*color13: #ef9ebe
 !cyan
 *color6: #5E7175
 *color14: #A3BABF

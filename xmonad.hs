@@ -30,29 +30,28 @@ myTerminal              = "urxvtc"
 myBorderWidth           = 1
 myModMask               = mod4Mask
 myNumlockMask           = mod2Mask
-myNormalBorderColor     = "#121212" 
-myFocusedBorderColor    = "#222222"
+myNormalBorderColor     = "#0e0e0e" 
+myFocusedBorderColor    = "#555555"
 myFocusFollowsMouse     = False
 
     -- Dzen2
-myStatusBar             = "dzen2 -x '0' -y '0' -h '13' -ta l -fn 'cure.se-9' -bg '#141414' -fg '#ffffff' -e 'onstart:lower'"
+myStatusBar             = "dzen2 -x '0' -y '0' -h '16' -ta l -fn 'cure.se-9' -bg '#141414' -fg '#ffffff' -e 'onstart:lower'"
 
     -- Clickable Workspaces
-myWorkspaces            :: [String]
 myWorkspaces            = clickable . (map dzenEscape) $ ["eax", "ebx", "ecx", "edx"]
   where clickable l     = [ "^ca(1,xdotool key super+" ++ show (n) ++ ")" ++ ws ++ "^ca()" | (i,ws) <- zip [1..] l, let n = i ]
 
     -- ShellPrompt
 myShellPrompt           = defaultXPConfig
-  { font                = "-*-proggytinyttsz-*-*-*-*-0-*-*-*-*-*-*-*"
+  { font                = "-*-cure.se-*-*-normal-*-11-110-*-*-*-*-iso8859-1"
   , bgColor             = "#141414"
-  , fgColor             = "#3f3f3f"
-  , fgHLight            = "#bfbfbf"
-  , bgHLight            = "#222222"
+  , fgColor             = "#555555"
+  , fgHLight            = "#8f8f8f"
+  , bgHLight            = "#141414"
   , borderColor         = "#4f4f4f"
   , promptBorderWidth   = 0
   , position            = Top
-  ,  height              = 16
+  ,  height              = 15
   , defaultText         = [] }
 
   -- Keybindings
@@ -151,12 +150,12 @@ main = do
     -- Dzen2 PrettyPrinting
           logHook            = dynamicLogWithPP $ dzenPP {
                                 ppOutput            = hPutStrLn dzproc
-                                , ppCurrent         = wrap "^fg(#bfbfbf)^bg(#222222)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win.xbm)" " ^fg()^bg()"
+                                , ppCurrent         = wrap "^fg(#8f8f8f)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win.xbm)" " ^fg()^bg()"
                                 , ppVisible         = wrap "^fg(#8f8f8f)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win_nv.xbm)" " ^fg()^bg()"
-                                , ppHidden          = wrap "^fg(#3f3f3f)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win_nv.xbm)" " ^fg()^bg()"
-                                , ppHiddenNoWindows = wrap " ^fg(#3f3f3f)^bg(#141414)" " ^fg()^bg()" 
+                                , ppHidden          = wrap "^fg(#555555)^bg(#141414)^i(/home/jan-patrick/misc/dzen_bitmaps/has_win_nv.xbm)" " ^fg()^bg()"
+                                , ppHiddenNoWindows = wrap " ^fg(#555555)^bg(#141414)" " ^fg()^bg()" 
                                 , ppUrgent          = dzenColor "#ff0000" "black"
-                                , ppLayout          = dzenColor "#6f6f6f" "#141414" . pad .
+                                , ppLayout          = dzenColor "#5f5f5f" "#141414" . pad .
                                     (\x -> case x of
                                             "ResizableTall" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/tall.xbm)"
                                             "Mirror ResizableTall" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/mtall.xbm)"
@@ -164,7 +163,7 @@ main = do
                                             "Grid" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/grid.xbm)"
                                             "SimplestFloat" -> "^i(/home/jan-patrick/misc/dzen_bitmaps/float.xbm)"
                                     )
-                              , ppTitle           = wrap "^fg(#bfbfbf)^bg(#141414) " " ^fg()^bg()" . shorten 125
+                              , ppTitle           = wrap "^fg(#8f8f8f)^bg(#141414) " " ^fg()^bg()" . shorten 125
                               , ppWsSep           = "^fg()^bg(#141414)"
                               , ppSep             = "^fg()^bg(#141414)"
                               }
