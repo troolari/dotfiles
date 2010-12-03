@@ -4,10 +4,10 @@
 urxvt*background: #111111
 urxvt*foreground: #e1e2db
 
-Xft.dpi: 84
+Xft.dpi: 96
 Xft.antialias: true
-Xft.hinting: full
-Xft.hintstyle: hintslight
+Xft.hinting: 0
+Xft.hintstyle: hintnone
 Xft.rgba: rgb
 
 xterm*faceName: cure.se
